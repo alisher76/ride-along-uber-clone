@@ -1,0 +1,6 @@
+framework module Pods_ride_along_developmentTests {
+  umbrella header "Pods-ride-along-developmentTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
