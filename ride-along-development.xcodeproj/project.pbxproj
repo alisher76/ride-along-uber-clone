@@ -20,6 +20,7 @@
 		ACAE8D801FFC1C0A00A75D8B /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D7F1FFC1C0A00A75D8B /* RoundImageView.swift */; };
 		ACAE8D821FFC1CFC00A75D8B /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D811FFC1CFC00A75D8B /* RoundedShadowView.swift */; };
 		ACAE8D841FFC1DFB00A75D8B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D831FFC1DFB00A75D8B /* CircleView.swift */; };
+		ACAE8D861FFC202300A75D8B /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D851FFC202300A75D8B /* RoundedShadowButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		ACAE8D7F1FFC1C0A00A75D8B /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		ACAE8D811FFC1CFC00A75D8B /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		ACAE8D831FFC1DFB00A75D8B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		ACAE8D851FFC202300A75D8B /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				ACAE8D7F1FFC1C0A00A75D8B /* RoundImageView.swift */,
 				ACAE8D811FFC1CFC00A75D8B /* RoundedShadowView.swift */,
 				ACAE8D831FFC1DFB00A75D8B /* CircleView.swift */,
+				ACAE8D851FFC202300A75D8B /* RoundedShadowButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACAE8D861FFC202300A75D8B /* RoundedShadowButton.swift in Sources */,
 				ACAE8D841FFC1DFB00A75D8B /* CircleView.swift in Sources */,
 				AC40A2241FFB4D7000004D45 /* ViewController.swift in Sources */,
 				ACAE8D801FFC1C0A00A75D8B /* RoundImageView.swift in Sources */,

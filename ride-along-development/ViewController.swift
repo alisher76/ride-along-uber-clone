@@ -12,6 +12,7 @@ import MapKit
 class ViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var requestBtn: RoundedShadowButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    @IBAction func requestBtnTapped(_ sender: Any) {
+        print("Btn is pressed")
+        requestBtn.animateButton(shouldLoad: true, withMessage: nil)
+    }
+    
 
 }
 
