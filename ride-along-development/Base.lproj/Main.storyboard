@@ -55,7 +55,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xIO-Py-J2o">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alisher" translatesAutoresizingMaskIntoConstraints="NO" id="xIO-Py-J2o">
                                         <rect key="frame" x="330" y="60" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="gFi-3l-1ef"/>
@@ -188,6 +188,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="alisher" width="1365" height="1365"/>
         <image name="cancelBtn" width="32" height="31"/>
         <image name="centerMapBtn" width="62" height="62"/>
         <image name="menuSliderBtn" width="30" height="24"/>
