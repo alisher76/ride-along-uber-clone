@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeVC.swift
 //  ride-along-development
 //
 //  Created by Alisher Abdukarimov on 1/1/18.
@@ -9,15 +9,18 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class HomeVC: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var requestBtn: RoundedShadowButton!
+    
+    var delegate: CenterVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
