@@ -40,6 +40,9 @@
                                     <constraint firstAttribute="height" constant="24" id="nys-5k-zfS"/>
                                 </constraints>
                                 <state key="normal" image="menuSliderBtn"/>
+                                <connections>
+                                    <action selector="menuBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JkP-3b-b3N"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iYN-JR-XYl" userLabel="LogoLabelStack">
                                 <rect key="frame" x="147" y="47" width="81" height="52"/>

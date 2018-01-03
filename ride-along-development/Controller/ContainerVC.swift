@@ -33,6 +33,8 @@ class ContainerVC: UIViewController {
     var isHidden = false
     let centerPannelExpandedOffset: CGFloat = 140
     
+    var tap: UITapGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initCenter(screen: showVC)
@@ -89,7 +91,7 @@ extension ContainerVC: CenterVCDelegate {
         }
     }
     
-    func animateLeftPanelVC(shouldExpand: Bool) {
+    @objc func animateLeftPanelVC(shouldExpand: Bool) {
         if shouldExpand {
             isHidden = !isHidden
             animateStatusBar()
@@ -131,6 +133,7 @@ extension ContainerVC: CenterVCDelegate {
     }
     
     func hideWhiteCoverView() {
+        centerController.view.removeGestureRecognizer(tap)
         for subview in self.centerController.view.subviews {
             if subview.tag == 20 {
                 UIView.animate(withDuration: 0.3, animations: {
@@ -154,6 +157,9 @@ extension ContainerVC: CenterVCDelegate {
         UIView.animate(withDuration: 0.2) {
             whiteCoverView.alpha = 0.5
         }
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.animateLeftPanelVC(shouldExpand:)))
+        tap.numberOfTapsRequired = 1
+        self.centerController.view.addGestureRecognizer(tap)
     }
     
 }
@@ -161,7 +167,7 @@ extension ContainerVC: CenterVCDelegate {
 private extension UIStoryboard {
     
     class func mainStoryBoard() -> UIStoryboard {
-        return UIStoryboard(name: "main", bundle: Bundle.main)
+        return UIStoryboard(name: "Main", bundle: Bundle.main)
     }
     
     class func leftViewController() -> LeftSidePannelVC? {

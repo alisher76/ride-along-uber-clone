@@ -11,6 +11,7 @@ import MapKit
 
 class HomeVC: UIViewController, MKMapViewDelegate {
 
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var requestBtn: RoundedShadowButton!
     
@@ -35,6 +36,9 @@ class HomeVC: UIViewController, MKMapViewDelegate {
         requestBtn.animateButton(shouldLoad: true, withMessage: nil)
     }
     
-
+    @IBAction func menuBtnTapped(_ sender: Any) {
+        delegate?.toggleLeftPanel()
+    }
+    
 }
 
