@@ -151,9 +151,7 @@ extension ContainerVC: CenterVCDelegate {
         whiteCoverView.tag = 20
         
         self.centerController.view.addSubview(whiteCoverView)
-        UIView.animate(withDuration: 0.2) {
-            whiteCoverView.alpha = 0.5
-        }
+        whiteCoverView.fadeTo(alhpaValue: 0.5, withDuration: 0.2)
         tap = UITapGestureRecognizer(target: self, action: #selector(animateLeftPanelVC(shouldExpand:)))
         tap.numberOfTapsRequired = 1
         self.centerController.view.addGestureRecognizer(tap)
@@ -186,6 +184,9 @@ extension ContainerVC: CenterVCDelegate {
     }
     
 }
+
+
+// MARK: Storyboard extension
 
 private extension UIStoryboard {
     

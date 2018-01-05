@@ -9,7 +9,7 @@
 import UIKit
 
 class RoundedShadowButton: UIButton {
-
+    
     var originalSize: CGRect?
     
     override func awakeFromNib() {
@@ -46,9 +46,7 @@ class RoundedShadowButton: UIButton {
                 if finished {
                     spinner.startAnimating()
                     spinner.center = CGPoint(x: self.frame.width / 2, y: self.frame.width / 2 )
-                    UIView.animate(withDuration: 0.3, animations: {
-                        spinner.alpha = 1.0
-                    })
+                    spinner.fadeTo(alhpaValue: 1.0, withDuration: 0.3)
                 }
             })
             self.isUserInteractionEnabled = false
@@ -67,8 +65,5 @@ class RoundedShadowButton: UIButton {
                 self.setTitle(message, for: .normal)
             })
         }
-       
-        
     }
-
 }

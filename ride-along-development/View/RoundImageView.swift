@@ -17,7 +17,6 @@ class RoundImageView: UIImageView {
     func setupView() {
         self.layer.cornerRadius = self.bounds.height / 2
         self.clipsToBounds = true 
-        
     }
 
 }
