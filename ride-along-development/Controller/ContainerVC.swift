@@ -28,7 +28,13 @@ class ContainerVC: UIViewController {
     var homeVC: HomeVC!
     var leftVC: LeftSidePannelVC!
     var centerController: UIViewController!
-    var currentState: SlideOutState = .collapsed
+    var currentState: SlideOutState = .collapsed {
+        didSet {
+            let shouldShowShadow = (currentState != .collapsed)
+            
+            shouldShowShadowFor(centerVC: shouldShowShadow)
+        }
+    }
     
     var isHidden = false
     let centerPannelExpandedOffset: CGFloat = 140
@@ -71,7 +77,7 @@ class ContainerVC: UIViewController {
         return isHidden
     }
     
-    func shouldShowPonel(_ status: Bool) {
+    func shouldShowPanel(_ status: Bool) {
         centerController.view.layer.shadowOpacity = 1.0
     }
     
@@ -165,6 +171,17 @@ extension ContainerVC: CenterVCDelegate {
                     }
                 })
             }
+        }
+    }
+    
+    func shouldShowShadowFor(centerVC status: Bool) {
+        if status {
+            centerController.view.layer.shadowColor = UIColor.white.cgColor
+            centerController.view.layer.shadowRadius = 10.0
+            centerController.view.layer.shadowOpacity = 0.8
+            centerController.view.layer.shadowOffset = CGSize(width: 5, height: 0)
+        } else {
+            centerController.view.layer.shadowOpacity = 0.0
         }
     }
     
