@@ -71,6 +71,10 @@ class ContainerVC: UIViewController {
         return isHidden
     }
     
+    func shouldShowPonel(_ status: Bool) {
+        centerController.view.layer.shadowOpacity = 1.0
+    }
+    
 }
 
 extension ContainerVC: CenterVCDelegate {
@@ -132,20 +136,7 @@ extension ContainerVC: CenterVCDelegate {
         })
     }
     
-    func hideWhiteCoverView() {
-        centerController.view.removeGestureRecognizer(tap)
-        for subview in self.centerController.view.subviews {
-            if subview.tag == 20 {
-                UIView.animate(withDuration: 0.3, animations: {
-                    subview.alpha = 0.0
-                }, completion: { (finished) in
-                    if finished {
-                            subview.removeFromSuperview()
-                    }
-                })
-            }
-        }
-    }
+    
     
     func setupWhiteCoverView() {
         let whiteCoverView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
@@ -157,9 +148,24 @@ extension ContainerVC: CenterVCDelegate {
         UIView.animate(withDuration: 0.2) {
             whiteCoverView.alpha = 0.5
         }
-        tap = UITapGestureRecognizer(target: self, action: #selector(self.animateLeftPanelVC(shouldExpand:)))
+        tap = UITapGestureRecognizer(target: self, action: #selector(animateLeftPanelVC(shouldExpand:)))
         tap.numberOfTapsRequired = 1
         self.centerController.view.addGestureRecognizer(tap)
+    }
+    
+    func hideWhiteCoverView() {
+        centerController.view.removeGestureRecognizer(tap)
+        for subview in self.centerController.view.subviews {
+            if subview.tag == 20 {
+                UIView.animate(withDuration: 0.3, animations: {
+                    subview.alpha = 0.0
+                }, completion: { (finished) in
+                    if finished {
+                        subview.removeFromSuperview()
+                    }
+                })
+            }
+        }
     }
     
 }

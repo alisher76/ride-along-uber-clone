@@ -35,6 +35,7 @@ class RoundedShadowButton: UIButton {
         spinner.hidesWhenStopped = true
         spinner.tag = 22
         
+        
         if shouldLoad {
             self.addSubview(spinner)
             self.setTitle("", for: .normal)
@@ -66,6 +67,7 @@ class RoundedShadowButton: UIButton {
                 self.setTitle(message, for: .normal)
             })
         }
+       
         
     }
 
