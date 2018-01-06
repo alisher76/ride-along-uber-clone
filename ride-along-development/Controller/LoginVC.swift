@@ -12,8 +12,10 @@ class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.bindToKeyboard()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        self.view.addGestureRecognizer(tap)
     }
 
     
@@ -21,5 +23,7 @@ class LoginVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
 }
