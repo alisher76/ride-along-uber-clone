@@ -338,10 +338,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OFE-Dy-q3Z">
-                                            <rect key="frame" x="22" y="197.66666666666663" width="330" height="377"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OFE-Dy-q3Z">
+                                            <rect key="frame" x="22" y="235" width="330" height="342"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MKP-qX-oKz">
+                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MKP-qX-oKz">
                                                     <rect key="frame" x="0.0" y="0.0" width="330" height="189"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ab3-tc-8hY" userLabel="logoStgack">
@@ -362,7 +362,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up or Log in to start requesting rides anywhere." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cd1-EF-ni6">
-                                                            <rect key="frame" x="0.0" y="104.00000000000003" width="330" height="85"/>
+                                                            <rect key="frame" x="0.0" y="104" width="330" height="85"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="330" id="IeS-w4-kIF"/>
                                                                 <constraint firstAttribute="height" constant="85" id="mnu-R2-XYm"/>
@@ -373,46 +373,52 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uPK-Qq-Ccg">
-                                                    <rect key="frame" x="0.0" y="209.00000000000003" width="330" height="29"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uPK-Qq-Ccg">
+                                                    <rect key="frame" x="0.0" y="204" width="330" height="29"/>
                                                     <segments>
                                                         <segment title="Passenger"/>
                                                         <segment title="Driver"/>
                                                     </segments>
                                                     <color key="tintColor" red="0.069589553999999998" green="0.44344597349999998" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </segmentedControl>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPa-Ee-KUW" customClass="RoundedCornerTxtField" customModule="ride_along_development" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="257" width="330" height="50"/>
-                                                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="N1Q-6v-UWZ"/>
-                                                    </constraints>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0w9-Of-dGd" customClass="RoundedCornerTxtField" customModule="ride_along_development" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="327" width="330" height="50"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="XUo-C8-eOD"/>
-                                                    </constraints>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rwk-AM-ldy">
+                                                    <rect key="frame" x="0.0" y="247" width="330" height="95"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1Y-mH-Dqb" customClass="RoundedCornerTxtField" customModule="ride_along_development" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="45" id="eql-HP-qfz"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kGN-yV-ZqN" customClass="RoundedCornerTxtField" customModule="ride_along_development" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="50" width="330" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="45" id="dWc-in-2mP"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fza-bR-J3e" customClass="RoundedShadowButton" customModule="ride_along_development" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="732" width="335" height="60"/>
+                                            <rect key="frame" x="20" y="747" width="335" height="45"/>
                                             <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="wIw-wy-RRw"/>
+                                                <constraint firstAttribute="height" constant="45" id="wIw-wy-RRw"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="19"/>
                                             <state key="normal" title="Sign in/Lgin">
                                                 <color key="titleColor" red="0.1714009047" green="0.1984312832" blue="0.27726286649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="signInBtnTapped:" destination="m5f-5a-THj" eventType="touchUpInside" id="nqq-8w-e9b"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuQ-TF-tQf">
                                             <rect key="frame" x="20" y="50" width="30" height="30"/>
@@ -432,7 +438,7 @@
                                         <constraint firstItem="OuQ-TF-tQf" firstAttribute="leading" secondItem="sfi-cB-DUx" secondAttribute="leading" constant="20" id="OvG-RA-4Rc"/>
                                         <constraint firstAttribute="trailing" secondItem="Fza-bR-J3e" secondAttribute="trailing" constant="20" id="Q3g-kw-BYe"/>
                                         <constraint firstItem="Fza-bR-J3e" firstAttribute="leading" secondItem="sfi-cB-DUx" secondAttribute="leading" constant="20" id="Z6d-gV-QQK"/>
-                                        <constraint firstItem="OFE-Dy-q3Z" firstAttribute="centerY" secondItem="sfi-cB-DUx" secondAttribute="centerY" constant="-20" id="gMy-Ya-Rvv"/>
+                                        <constraint firstItem="OFE-Dy-q3Z" firstAttribute="centerY" secondItem="sfi-cB-DUx" secondAttribute="centerY" id="gMy-Ya-Rvv"/>
                                         <constraint firstItem="OuQ-TF-tQf" firstAttribute="top" secondItem="sfi-cB-DUx" secondAttribute="top" constant="50" id="skL-Gv-W9Q"/>
                                     </constraints>
                                 </view>
@@ -452,6 +458,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u7y-0c-eJO"/>
                     </view>
+                    <connections>
+                        <outlet property="passwrodTextField" destination="kGN-yV-ZqN" id="30d-BW-zyi"/>
+                        <outlet property="segmentControl" destination="uPK-Qq-Ccg" id="zfd-PC-Tkz"/>
+                        <outlet property="signInBtn" destination="Fza-bR-J3e" id="wkk-m6-IsN"/>
+                        <outlet property="usernameTextField" destination="N1Y-mH-Dqb" id="c6v-U8-rWb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFO-S0-ZWX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
