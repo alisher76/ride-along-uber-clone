@@ -12,6 +12,7 @@
 		AC3FDE582000941000FB6D1A /* RoundedCornerTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3FDE572000941000FB6D1A /* RoundedCornerTxtField.swift */; };
 		AC3FDE5A20009E4800FB6D1A /* RoundedImageShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3FDE5920009E4800FB6D1A /* RoundedImageShadow.swift */; };
 		AC3FDE5C2000A3C500FB6D1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC3FDE5B2000A3C400FB6D1A /* GoogleService-Info.plist */; };
+		AC3FDE5F2000A5F400FB6D1A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3FDE5E2000A5F400FB6D1A /* DataService.swift */; };
 		AC40A2221FFB4D7000004D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC40A2211FFB4D7000004D45 /* AppDelegate.swift */; };
 		AC40A2241FFB4D7000004D45 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC40A2231FFB4D7000004D45 /* HomeVC.swift */; };
 		AC40A2271FFB4D7000004D45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC40A2251FFB4D7000004D45 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		AC3FDE572000941000FB6D1A /* RoundedCornerTxtField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerTxtField.swift; sourceTree = "<group>"; };
 		AC3FDE5920009E4800FB6D1A /* RoundedImageShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageShadow.swift; sourceTree = "<group>"; };
 		AC3FDE5B2000A3C400FB6D1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC3FDE5E2000A5F400FB6D1A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		AC40A21E1FFB4D7000004D45 /* ride-along-development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ride-along-development.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC40A2211FFB4D7000004D45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC40A2231FFB4D7000004D45 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AC3FDE5D2000A5CD00FB6D1A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC3FDE5E2000A5F400FB6D1A /* DataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AC40A2151FFB4D7000004D45 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +139,7 @@
 		AC40A2201FFB4D7000004D45 /* ride-along-development */ = {
 			isa = PBXGroup;
 			children = (
+				AC3FDE5D2000A5CD00FB6D1A /* Services */,
 				ACAE8D8B1FFC2D6100A75D8B /* Protocols */,
 				ACAE8D7A1FFC16C900A75D8B /* Extension */,
 				ACAE8D791FFC16A200A75D8B /* View */,
@@ -440,6 +451,7 @@
 				ACAE8D841FFC1DFB00A75D8B /* CircleView.swift in Sources */,
 				AC3FDE5A20009E4800FB6D1A /* RoundedImageShadow.swift in Sources */,
 				ACAE8D8A1FFC2B0500A75D8B /* ContainerVC.swift in Sources */,
+				AC3FDE5F2000A5F400FB6D1A /* DataService.swift in Sources */,
 				AC40A2241FFB4D7000004D45 /* HomeVC.swift in Sources */,
 				ACAE8D801FFC1C0A00A75D8B /* RoundImageView.swift in Sources */,
 				ACAE8D821FFC1CFC00A75D8B /* RoundedShadowView.swift in Sources */,
