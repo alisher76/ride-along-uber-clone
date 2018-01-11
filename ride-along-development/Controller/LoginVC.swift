@@ -39,6 +39,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInBtnTapped(_ sender: Any) {
+        // Check to make sure text fields have values 
         if passwrodTextField.text != nil && usernameTextField.text != nil {
             signInBtn.animateButton(shouldLoad: true, withMessage: nil)
             self.view.endEditing(true)
@@ -60,7 +61,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         }
                         print("User authenticated successfully with Firebase")
                         self.dismiss(animated: true, completion: nil)
+                        
+                    } else if AuthErrorCode(rawValue: error!._code) == .invalidEmail {
+                        // Handle error
+                        print("Email invalid try again")
+                    } else if AuthErrorCode(rawValue: error!._code) == .wrongPassword {
+                            print("Wrong password or email already in use")
                     } else {
+                    
                         Auth.auth().createUser(withEmail: userName, password: passwd, completion: { (user, error) in
                            
                             if user == nil {
@@ -71,6 +79,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                         print("Email invalid try again")
                                     case .emailAlreadyInUse:
                                         print("Email already in use")
+                                    case .weakPassword:
+                                        print("Sorry weak password")
                                     default:
                                         print("Could not create a user")
                                     }

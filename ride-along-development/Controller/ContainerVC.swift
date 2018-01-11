@@ -37,7 +37,6 @@ class ContainerVC: UIViewController {
     }
     
     var isHidden = false
-    let centerPannelExpandedOffset: CGFloat = 140
     
     var tap: UITapGestureRecognizer!
     
@@ -102,6 +101,9 @@ extension ContainerVC: CenterVCDelegate {
     }
     
     @objc func animateLeftPanelVC(shouldExpand: Bool) {
+        
+        let centerPannelExpandedOffset: CGFloat = self.view.frame.width / 2
+        
         if shouldExpand {
             isHidden = !isHidden
             animateStatusBar()
@@ -174,7 +176,7 @@ extension ContainerVC: CenterVCDelegate {
     
     func shouldShowShadowFor(centerVC status: Bool) {
         if status {
-            centerController.view.layer.shadowColor = UIColor.white.cgColor
+            centerController.view.layer.shadowColor = UIColor.gray.cgColor
             centerController.view.layer.shadowRadius = 10.0
             centerController.view.layer.shadowOpacity = 0.8
             centerController.view.layer.shadowOffset = CGSize(width: 5, height: 0)

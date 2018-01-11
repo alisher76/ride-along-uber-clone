@@ -12,7 +12,7 @@ import RevealingSplashView
 
 class HomeVC: UIViewController, MKMapViewDelegate {
 
-    
+    //Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var requestBtn: RoundedShadowButton!
     
