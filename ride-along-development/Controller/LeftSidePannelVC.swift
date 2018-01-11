@@ -82,7 +82,6 @@ class LeftSidePannelVC: UIViewController {
         }
     }
     
-    
     // IBActions
     
     @IBAction func lgnBtnTapped(_ sender: Any) {
