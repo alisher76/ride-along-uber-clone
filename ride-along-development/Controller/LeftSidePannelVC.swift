@@ -11,7 +11,6 @@ import Firebase
 
 class LeftSidePannelVC: UIViewController {
     
-    let currentUserID = Auth.auth().currentUser?.uid
     let appDelegate = AppDelegate.getAppDelegate()
 
     // Outlets
@@ -57,7 +56,7 @@ class LeftSidePannelVC: UIViewController {
         DataService.instance.REF_USERS.observeSingleEvent(of: .value) { (_snapshot) in
             if let snapshot = _snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot {
-                    if snap.key == self.currentUserID! {
+                    if snap.key == Auth.auth().currentUser?.uid {
                         self.modeLabel.isHidden = false
                         self.userTypeLabel.text = "Passenger"
                         guard let email = Auth.auth().currentUser?.email else { return }
@@ -111,7 +110,7 @@ class LeftSidePannelVC: UIViewController {
     
     @IBAction func switchToggleTapped(_ sender: Any) {
             self.modeLabel.text = switchController.isOn ? "You are Online" : "You are Offline"
-            DataService.instance.REF_DRIVERS.child(currentUserID!).updateChildValues(["isOnline" : switchController.isOn])
+            DataService.instance.REF_DRIVERS.child((Auth.auth().currentUser?.uid)!).updateChildValues(["isOnline" : switchController.isOn])
             appDelegate.MenuContainerVC.toggleLeftPanel()
     }
     

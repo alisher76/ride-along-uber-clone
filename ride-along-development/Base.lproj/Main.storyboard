@@ -26,6 +26,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ezE-VG-7pw">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ma9-yF-kNG"/>
+                                </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKh-pb-bNX" customClass="GradientView" customModule="ride_along_development" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -176,6 +179,9 @@
                                     <constraint firstAttribute="width" constant="60" id="tee-jA-CMb"/>
                                 </constraints>
                                 <state key="normal" image="centerMapBtn"/>
+                                <connections>
+                                    <action selector="centerBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fVZ-Px-nv2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
