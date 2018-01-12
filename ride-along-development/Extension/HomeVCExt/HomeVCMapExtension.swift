@@ -29,6 +29,10 @@ extension HomeVC: MKMapViewDelegate {
         }
     }
     
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+         centerMapBtn.fadeTo(alhpaValue: 1.0, withDuration: 2.0)
+    }
+    
     // Load coordinates from DataBase
     func loadDriverAnnotationFromDB() {
         DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value) { (snapshot) in

@@ -16,6 +16,7 @@ class HomeVC: UIViewController {
     // Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var requestBtn: RoundedShadowButton!
+    @IBOutlet weak var centerMapBtn: UIButton!
     
     
     // Properties
@@ -63,6 +64,7 @@ class HomeVC: UIViewController {
     
     @IBAction func centerBtnTapped(_ sender: Any) {
         centerMapOnUserLocation()
+        centerMapBtn.fadeTo(alhpaValue: 0.0, withDuration: 0.2)
     }
     
 }

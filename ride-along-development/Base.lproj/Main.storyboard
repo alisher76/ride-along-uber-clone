@@ -211,6 +211,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="centerMapBtn" destination="Wyp-Ab-Q5R" id="DyP-OW-LIz"/>
                         <outlet property="mapView" destination="ezE-VG-7pw" id="3eq-wI-LdZ"/>
                         <outlet property="requestBtn" destination="F1c-FJ-WsJ" id="qmo-72-KKf"/>
                     </connections>
