@@ -151,7 +151,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are you going?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCQ-c8-ciI">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where are you going?" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vCQ-c8-ciI">
                                                         <rect key="frame" x="25" y="0.0" width="280" height="20"/>
                                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -212,6 +212,8 @@
                     </view>
                     <connections>
                         <outlet property="centerMapBtn" destination="Wyp-Ab-Q5R" id="DyP-OW-LIz"/>
+                        <outlet property="locationCircle" destination="hdA-X8-3E1" id="I4X-Sr-jNA"/>
+                        <outlet property="locationTextField" destination="vCQ-c8-ciI" id="SXw-9c-Bux"/>
                         <outlet property="mapView" destination="ezE-VG-7pw" id="3eq-wI-LdZ"/>
                         <outlet property="requestBtn" destination="F1c-FJ-WsJ" id="qmo-72-KKf"/>
                     </connections>

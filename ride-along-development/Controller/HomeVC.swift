@@ -17,6 +17,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var requestBtn: RoundedShadowButton!
     @IBOutlet weak var centerMapBtn: UIButton!
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var locationCircle: CircleView!
     
     
     // Properties
@@ -24,16 +26,18 @@ class HomeVC: UIViewController {
     let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "RALogo")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
     
     var manager: CLLocationManager?
-    
+    var tableView = UITableView()
     var regionRadius: CLLocationDistance = 1000
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Delegates
+        mapView.delegate = self
+        manager?.delegate = self
+        locationTextField.delegate = self
         
         manager = CLLocationManager()
-        mapView.delegate = self
         
-        manager?.delegate = self
         manager?.desiredAccuracy = kCLLocationAccuracyBest
         checkLocationAuthStatus()
     
