@@ -67,8 +67,6 @@ extension HomeVC: UITextFieldDelegate {
                 UIView.animate(withDuration: 0.2, animations: {
                     self.locationCircle.backgroundColor = UIColor.lightGray
                     self.locationCircle.borderColor = UIColor.darkGray
-                    self.matchingItems.removeAll()
-                    self.tableView.reloadData()
                     self.animateTableView(shouldShow: false)
                 })
             }
@@ -77,6 +75,8 @@ extension HomeVC: UITextFieldDelegate {
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         centerMapOnUserLocation()
+        self.matchingItems.removeAll()
+        self.tableView.reloadData()
         return true
     }
 }
