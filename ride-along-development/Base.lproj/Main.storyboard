@@ -26,6 +26,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ezE-VG-7pw">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ma9-yF-kNG"/>
+                                </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKh-pb-bNX" customClass="GradientView" customModule="ride_along_development" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -148,7 +151,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Where are you going?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vCQ-c8-ciI">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where are you going?" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vCQ-c8-ciI">
                                                         <rect key="frame" x="25" y="0.0" width="280" height="20"/>
                                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -176,6 +179,9 @@
                                     <constraint firstAttribute="width" constant="60" id="tee-jA-CMb"/>
                                 </constraints>
                                 <state key="normal" image="centerMapBtn"/>
+                                <connections>
+                                    <action selector="centerBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fVZ-Px-nv2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -205,6 +211,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="centerMapBtn" destination="Wyp-Ab-Q5R" id="DyP-OW-LIz"/>
+                        <outlet property="locationCircle" destination="hdA-X8-3E1" id="I4X-Sr-jNA"/>
+                        <outlet property="locationTextField" destination="vCQ-c8-ciI" id="SXw-9c-Bux"/>
                         <outlet property="mapView" destination="ezE-VG-7pw" id="3eq-wI-LdZ"/>
                         <outlet property="requestBtn" destination="F1c-FJ-WsJ" id="qmo-72-KKf"/>
                     </connections>
@@ -320,12 +329,22 @@
                                         <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                                         <color key="onTintColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <color key="thumbTintColor" name="selectedKnobColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <action selector="switchToggleTapped:" destination="M48-ub-9m4" eventType="valueChanged" id="hm7-GU-OGS"/>
+                                        </connections>
                                     </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Type" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dst-YL-5uJ">
+                                        <rect key="frame" x="0.0" y="385.33333333333337" width="107.33333333333333" height="26"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                        <color key="textColor" white="0.5" alpha="0.9236675942" colorSpace="deviceWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Oan-Tu-gOs" firstAttribute="top" secondItem="vLV-UG-bn0" secondAttribute="bottom" constant="10" id="0lA-py-x52"/>
                                     <constraint firstItem="GAS-af-hHf" firstAttribute="leading" secondItem="vLV-UG-bn0" secondAttribute="trailing" constant="17" id="2BT-qD-F7j"/>
+                                    <constraint firstItem="dst-YL-5uJ" firstAttribute="leading" secondItem="DdU-J1-qLJ" secondAttribute="leading" id="3ZY-B3-btn"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KpR-Gc-Ex5" secondAttribute="trailing" constant="20" symbolic="YES" id="5w1-tf-Wij"/>
                                     <constraint firstItem="Ou7-r7-1N6" firstAttribute="leading" secondItem="DdU-J1-qLJ" secondAttribute="leading" id="6SG-S6-Mmz"/>
                                     <constraint firstItem="whV-1V-PSq" firstAttribute="top" secondItem="DdU-J1-qLJ" secondAttribute="top" id="D42-cX-hJf"/>
@@ -337,6 +356,7 @@
                                     <constraint firstItem="KpR-Gc-Ex5" firstAttribute="top" secondItem="Oan-Tu-gOs" secondAttribute="bottom" constant="5" id="irU-Ro-clw"/>
                                     <constraint firstAttribute="bottom" secondItem="KpR-Gc-Ex5" secondAttribute="bottom" id="jD3-49-hOh"/>
                                     <constraint firstItem="GAS-af-hHf" firstAttribute="centerY" secondItem="vLV-UG-bn0" secondAttribute="centerY" id="m9d-vc-pv5"/>
+                                    <constraint firstItem="Ou7-r7-1N6" firstAttribute="top" secondItem="dst-YL-5uJ" secondAttribute="bottom" constant="5" id="wc5-Yg-Yzi"/>
                                     <constraint firstItem="vLV-UG-bn0" firstAttribute="top" secondItem="JBu-yO-BxB" secondAttribute="bottom" constant="10" id="yqy-PP-5KG"/>
                                     <constraint firstItem="JBu-yO-BxB" firstAttribute="leading" secondItem="DdU-J1-qLJ" secondAttribute="leading" id="zkD-N0-uxX"/>
                                 </constraints>
@@ -361,6 +381,7 @@
                         <outlet property="nameLabel" destination="Ou7-r7-1N6" id="e5u-RB-wMS"/>
                         <outlet property="profileImage" destination="vLV-UG-bn0" id="SXt-5l-oej"/>
                         <outlet property="switchController" destination="GAS-af-hHf" id="LD4-9O-0EP"/>
+                        <outlet property="userTypeLabel" destination="dst-YL-5uJ" id="eZR-T3-Id8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5V-ne-ozJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

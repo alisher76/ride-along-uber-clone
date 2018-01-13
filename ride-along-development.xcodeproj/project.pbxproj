@@ -19,8 +19,12 @@
 		AC40A2291FFB4D7000004D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC40A2281FFB4D7000004D45 /* Assets.xcassets */; };
 		AC40A22C1FFB4D7000004D45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC40A22A1FFB4D7000004D45 /* LaunchScreen.storyboard */; };
 		AC40A2371FFB4D7000004D45 /* ride_along_developmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC40A2361FFB4D7000004D45 /* ride_along_developmentTests.swift */; };
+		AC64557F2007FA5A005F4470 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC64557E2007FA5A005F4470 /* UpdateService.swift */; };
+		AC64558120080428005F4470 /* DriverAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC64558020080428005F4470 /* DriverAnotation.swift */; };
+		AC645584200805CE005F4470 /* HomeVCMapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC645583200805CE005F4470 /* HomeVCMapExtension.swift */; };
+		AC64558620080BB5005F4470 /* HomeVCLocationManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC64558520080BB5005F4470 /* HomeVCLocationManagerExtension.swift */; };
+		AC6711D4200885FD000A4D14 /* HomeVCUITextFieldDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6711D3200885FD000A4D14 /* HomeVCUITextFieldDelegateExtension.swift */; };
 		ACAE8D7C1FFC171300A75D8B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D7B1FFC171300A75D8B /* GradientView.swift */; };
-		ACAE8D7E1FFC193C00A75D8B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACAE8D7D1FFC193C00A75D8B /* MapKit.framework */; };
 		ACAE8D801FFC1C0A00A75D8B /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D7F1FFC1C0A00A75D8B /* RoundImageView.swift */; };
 		ACAE8D821FFC1CFC00A75D8B /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D811FFC1CFC00A75D8B /* RoundedShadowView.swift */; };
 		ACAE8D841FFC1DFB00A75D8B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D831FFC1DFB00A75D8B /* CircleView.swift */; };
@@ -63,6 +67,11 @@
 		AC40A2321FFB4D7000004D45 /* ride-along-developmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ride-along-developmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC40A2361FFB4D7000004D45 /* ride_along_developmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ride_along_developmentTests.swift; sourceTree = "<group>"; };
 		AC40A2381FFB4D7000004D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC64557E2007FA5A005F4470 /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
+		AC64558020080428005F4470 /* DriverAnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnotation.swift; sourceTree = "<group>"; };
+		AC645583200805CE005F4470 /* HomeVCMapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCMapExtension.swift; sourceTree = "<group>"; };
+		AC64558520080BB5005F4470 /* HomeVCLocationManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCLocationManagerExtension.swift; sourceTree = "<group>"; };
+		AC6711D3200885FD000A4D14 /* HomeVCUITextFieldDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCUITextFieldDelegateExtension.swift; sourceTree = "<group>"; };
 		ACAE8D7B1FFC171300A75D8B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		ACAE8D7D1FFC193C00A75D8B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		ACAE8D7F1FFC1C0A00A75D8B /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
@@ -81,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACAE8D7E1FFC193C00A75D8B /* MapKit.framework in Frameworks */,
 				45E5D68221CCEE05FC069419 /* Pods_ride_along_development.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				AC3FDE5E2000A5F400FB6D1A /* DataService.swift */,
+				AC64557E2007FA5A005F4470 /* UpdateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -141,10 +150,10 @@
 			children = (
 				AC3FDE5D2000A5CD00FB6D1A /* Services */,
 				ACAE8D8B1FFC2D6100A75D8B /* Protocols */,
-				ACAE8D7A1FFC16C900A75D8B /* Extension */,
-				ACAE8D791FFC16A200A75D8B /* View */,
 				ACAE8D781FFC16A000A75D8B /* Model */,
+				ACAE8D791FFC16A200A75D8B /* View */,
 				ACAE8D771FFC169B00A75D8B /* Controller */,
+				ACAE8D7A1FFC16C900A75D8B /* Extension */,
 				AC40A2211FFB4D7000004D45 /* AppDelegate.swift */,
 				AC40A2251FFB4D7000004D45 /* Main.storyboard */,
 				AC40A2281FFB4D7000004D45 /* Assets.xcassets */,
@@ -162,6 +171,16 @@
 				AC40A2381FFB4D7000004D45 /* Info.plist */,
 			);
 			path = "ride-along-developmentTests";
+			sourceTree = "<group>";
+		};
+		AC6455822008057E005F4470 /* HomeVCExt */ = {
+			isa = PBXGroup;
+			children = (
+				AC645583200805CE005F4470 /* HomeVCMapExtension.swift */,
+				AC64558520080BB5005F4470 /* HomeVCLocationManagerExtension.swift */,
+				AC6711D3200885FD000A4D14 /* HomeVCUITextFieldDelegateExtension.swift */,
+			);
+			path = HomeVCExt;
 			sourceTree = "<group>";
 		};
 		ACAE8D771FFC169B00A75D8B /* Controller */ = {
@@ -192,6 +211,7 @@
 				ACAE8D851FFC202300A75D8B /* RoundedShadowButton.swift */,
 				AC3FDE572000941000FB6D1A /* RoundedCornerTxtField.swift */,
 				AC3FDE5920009E4800FB6D1A /* RoundedImageShadow.swift */,
+				AC64558020080428005F4470 /* DriverAnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +219,7 @@
 		ACAE8D7A1FFC16C900A75D8B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AC6455822008057E005F4470 /* HomeVCExt */,
 				ACCFE96120002ED500AC4989 /* UIViewExtension.swift */,
 			);
 			path = Extension;
@@ -444,11 +465,16 @@
 			files = (
 				ACAE8D8D1FFC2D6E00A75D8B /* CenterVCDelegate.swift in Sources */,
 				AC3FDE582000941000FB6D1A /* RoundedCornerTxtField.swift in Sources */,
+				AC64557F2007FA5A005F4470 /* UpdateService.swift in Sources */,
 				ACAE8D881FFC2AC600A75D8B /* LeftSidePannelVC.swift in Sources */,
+				AC64558120080428005F4470 /* DriverAnotation.swift in Sources */,
 				ACCFE9642000364E00AC4989 /* LoginVC.swift in Sources */,
 				ACCFE96220002ED500AC4989 /* UIViewExtension.swift in Sources */,
 				ACAE8D861FFC202300A75D8B /* RoundedShadowButton.swift in Sources */,
+				AC6711D4200885FD000A4D14 /* HomeVCUITextFieldDelegateExtension.swift in Sources */,
+				AC645584200805CE005F4470 /* HomeVCMapExtension.swift in Sources */,
 				ACAE8D841FFC1DFB00A75D8B /* CircleView.swift in Sources */,
+				AC64558620080BB5005F4470 /* HomeVCLocationManagerExtension.swift in Sources */,
 				AC3FDE5A20009E4800FB6D1A /* RoundedImageShadow.swift in Sources */,
 				ACAE8D8A1FFC2B0500A75D8B /* ContainerVC.swift in Sources */,
 				AC3FDE5F2000A5F400FB6D1A /* DataService.swift in Sources */,

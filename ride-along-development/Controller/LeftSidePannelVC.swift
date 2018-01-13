@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 class LeftSidePannelVC: UIViewController {
+    
+    let appDelegate = AppDelegate.getAppDelegate()
 
     // Outlets
     @IBOutlet weak var lgnBtn: UIButton!
@@ -18,6 +20,7 @@ class LeftSidePannelVC: UIViewController {
     @IBOutlet weak var profileImage: RoundImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var switchController: UISwitch!
+    @IBOutlet weak var userTypeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,7 @@ class LeftSidePannelVC: UIViewController {
             nameLabel.text = ""
             emailLabel.text = ""
             modeLabel.text = ""
+            userTypeLabel.text = ""
             switchController.isHidden = true
             profileImage.isHidden = true
             lgnBtn.setTitle("Signup/Login", for: .normal)
@@ -54,7 +58,7 @@ class LeftSidePannelVC: UIViewController {
                 for snap in snapshot {
                     if snap.key == Auth.auth().currentUser?.uid {
                         self.modeLabel.isHidden = false
-                        self.modeLabel.text = "Passenger"
+                        self.userTypeLabel.text = "Passenger"
                         guard let email = Auth.auth().currentUser?.email else { return }
                         self.emailLabel.text = email
                         
@@ -67,7 +71,8 @@ class LeftSidePannelVC: UIViewController {
             if let snapshot = _snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot {
                     if snap.key == Auth.auth().currentUser?.uid {
-                        self.modeLabel.text = "Driver"
+                        self.userTypeLabel.text = "Driver"
+                        self.modeLabel.text = snap.childSnapshot(forPath: "isOnline").value as! Bool ? "You are Online" : "You are offline"
                         self.modeLabel.isHidden = false
                         self.switchController.isHidden = false
                         guard let email = Auth.auth().currentUser?.email else { return }
@@ -81,7 +86,6 @@ class LeftSidePannelVC: UIViewController {
             }
         }
     }
-    
     
     // IBActions
     
@@ -102,6 +106,14 @@ class LeftSidePannelVC: UIViewController {
 
         }
     }
+    
+    
+    @IBAction func switchToggleTapped(_ sender: Any) {
+            self.modeLabel.text = switchController.isOn ? "You are Online" : "You are Offline"
+        DataService.instance.REF_DRIVERS.child((Auth.auth().currentUser?.uid)!).updateChildValues(["isOnline" : switchController.isOn])
+            appDelegate.MenuContainerVC.toggleLeftPanel()
+    }
+    
     
     @IBAction func paymentBtntapped(_ sender: Any) {
         

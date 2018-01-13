@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Ride Along needs your location to give rides.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Ride Along needs your location to give rides.</string>
 </dict>
 </plist>
