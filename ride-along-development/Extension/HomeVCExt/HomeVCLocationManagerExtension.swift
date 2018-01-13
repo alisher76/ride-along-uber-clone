@@ -24,6 +24,7 @@ extension HomeVC: CLLocationManagerDelegate {
     }
     
     func centerMapOnUserLocation() {
+        
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(mapView.userLocation.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }

@@ -33,6 +33,28 @@ extension HomeVC: MKMapViewDelegate {
          centerMapBtn.fadeTo(alhpaValue: 1.0, withDuration: 2.0)
     }
     
+    func performSearch() {
+        matchingItems.removeAll()
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = locationTextField.text
+        request.region = mapView.region
+        
+        let search = MKLocalSearch(request: request)
+        
+        search.start { (responce, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "Could not describe the error")
+            } else if responce?.mapItems.count == 0 {
+                print("No Results found")
+            } else {
+                for mapItem in responce!.mapItems {
+                    self.matchingItems.append(mapItem)
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     // Load coordinates from DataBase
     func loadDriverAnnotationFromDB() {
         DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value) { (snapshot) in

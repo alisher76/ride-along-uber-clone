@@ -110,7 +110,7 @@ class LeftSidePannelVC: UIViewController {
     
     @IBAction func switchToggleTapped(_ sender: Any) {
             self.modeLabel.text = switchController.isOn ? "You are Online" : "You are Offline"
-            DataService.instance.REF_DRIVERS.child((Auth.auth().currentUser?.uid)!).updateChildValues(["isOnline" : switchController.isOn])
+        DataService.instance.REF_DRIVERS.child((Auth.auth().currentUser?.uid)!).updateChildValues(["isOnline" : switchController.isOn])
             appDelegate.MenuContainerVC.toggleLeftPanel()
     }
     

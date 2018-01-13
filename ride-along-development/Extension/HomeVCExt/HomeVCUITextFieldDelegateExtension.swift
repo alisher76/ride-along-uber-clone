@@ -55,6 +55,7 @@ extension HomeVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == locationTextField {
+            performSearch()
             view.endEditing(true)
         }
         return true
@@ -66,14 +67,18 @@ extension HomeVC: UITextFieldDelegate {
                 UIView.animate(withDuration: 0.2, animations: {
                     self.locationCircle.backgroundColor = UIColor.lightGray
                     self.locationCircle.borderColor = UIColor.darkGray
+                    self.matchingItems.removeAll()
+                    self.tableView.reloadData()
+                    self.animateTableView(shouldShow: false)
                 })
             }
         }
     }
-//
-//    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-//
-//    }
+
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        centerMapOnUserLocation()
+        return true
+    }
 }
 
 
@@ -85,13 +90,18 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if matchingItems.count != 0 {
+            return matchingItems.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell") else {
-            return UITableViewCell()
-        }
+         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "locationCell")
+         let mapItem = matchingItems[indexPath.row]
+         cell.textLabel?.text = mapItem.name
+         cell.detailTextLabel?.text = mapItem.placemark.title  
         return cell
     }
     

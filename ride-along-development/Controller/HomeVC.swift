@@ -29,15 +29,16 @@ class HomeVC: UIViewController {
     var tableView = UITableView()
     var regionRadius: CLLocationDistance = 1000
     
+    var matchingItems: [MKMapItem] = [MKMapItem]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Delegates
         mapView.delegate = self
-        manager?.delegate = self
         locationTextField.delegate = self
         
         manager = CLLocationManager()
-        
+        manager?.delegate = self
         manager?.desiredAccuracy = kCLLocationAccuracyBest
         checkLocationAuthStatus()
     
