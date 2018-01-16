@@ -131,7 +131,4 @@ class LeftSidePannelVC: UIViewController {
         
     }
     
-    
-    
-    
 }

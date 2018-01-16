@@ -52,7 +52,6 @@ class HomeVC: UIViewController {
         revealingSplashView.animationType = .heartBeat
         revealingSplashView.startAnimation()
         revealingSplashView.heartAttack = true
-        
     }
     
     
@@ -73,5 +72,3 @@ class HomeVC: UIViewController {
     }
     
 }
-
-
