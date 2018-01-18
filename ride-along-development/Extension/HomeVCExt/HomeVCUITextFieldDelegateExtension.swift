@@ -56,6 +56,7 @@ extension HomeVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == locationTextField {
             performSearch()
+            shouldPresentLoadingView(true)
             view.endEditing(true)
         }
         return true
@@ -115,9 +116,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let selectedMapItem = matchingItems[indexPath.row]
         
         DataService.instance.REF_USERS.child(currentUserID).updateChildValues(["tripCoordinate": [selectedMapItem.placemark.coordinate.latitude, selectedMapItem.placemark.coordinate.longitude]])
-
         dropPinFor(placemark: selectedMapItem.placemark)
+        
+        searchMapKitForResultWithPolyline(forMapItem: selectedMapItem)
+        
         animateTableView(shouldShow: false)
+        self.shouldPresentLoadingView(true)
     }
     
 }
