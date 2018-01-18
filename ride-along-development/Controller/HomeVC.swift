@@ -28,7 +28,7 @@ class HomeVC: UIViewController {
     var manager: CLLocationManager?
     var tableView = UITableView()
     var regionRadius: CLLocationDistance = 1000
-    
+    var selectedItemPlacemark: MKPlacemark? = nil
     var matchingItems: [MKMapItem] = [MKMapItem]()
     
     override func viewDidLoad() {
