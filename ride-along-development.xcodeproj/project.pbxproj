@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C155A9D5A911AB9CDBE45CF /* Pods_ride_along_developmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90107E8ED1631FC7946FCF0B /* Pods_ride_along_developmentTests.framework */; };
 		45E5D68221CCEE05FC069419 /* Pods_ride_along_development.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59B0D44E9D4DF8C73F179F82 /* Pods_ride_along_development.framework */; };
+		AC33925620103F90003B462D /* PassengerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33925520103F90003B462D /* PassengerAnnotation.swift */; };
 		AC3FDE582000941000FB6D1A /* RoundedCornerTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3FDE572000941000FB6D1A /* RoundedCornerTxtField.swift */; };
 		AC3FDE5A20009E4800FB6D1A /* RoundedImageShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3FDE5920009E4800FB6D1A /* RoundedImageShadow.swift */; };
 		AC3FDE5C2000A3C500FB6D1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC3FDE5B2000A3C400FB6D1A /* GoogleService-Info.plist */; };
@@ -53,6 +54,7 @@
 		84A12407D141DBD84562F025 /* Pods-ride-along-development.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ride-along-development.release.xcconfig"; path = "Pods/Target Support Files/Pods-ride-along-development/Pods-ride-along-development.release.xcconfig"; sourceTree = "<group>"; };
 		8E62307E0FD114B91C8376A7 /* Pods-ride-along-developmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ride-along-developmentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ride-along-developmentTests/Pods-ride-along-developmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		90107E8ED1631FC7946FCF0B /* Pods_ride_along_developmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ride_along_developmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC33925520103F90003B462D /* PassengerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerAnnotation.swift; sourceTree = "<group>"; };
 		AC3FDE572000941000FB6D1A /* RoundedCornerTxtField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerTxtField.swift; sourceTree = "<group>"; };
 		AC3FDE5920009E4800FB6D1A /* RoundedImageShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageShadow.swift; sourceTree = "<group>"; };
 		AC3FDE5B2000A3C400FB6D1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				AC3FDE572000941000FB6D1A /* RoundedCornerTxtField.swift */,
 				AC3FDE5920009E4800FB6D1A /* RoundedImageShadow.swift */,
 				AC64558020080428005F4470 /* DriverAnotation.swift */,
+				AC33925520103F90003B462D /* PassengerAnnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				AC3FDE582000941000FB6D1A /* RoundedCornerTxtField.swift in Sources */,
 				AC64557F2007FA5A005F4470 /* UpdateService.swift in Sources */,
 				ACAE8D881FFC2AC600A75D8B /* LeftSidePannelVC.swift in Sources */,
+				AC33925620103F90003B462D /* PassengerAnnotation.swift in Sources */,
 				AC64558120080428005F4470 /* DriverAnotation.swift in Sources */,
 				ACCFE9642000364E00AC4989 /* LoginVC.swift in Sources */,
 				ACCFE96220002ED500AC4989 /* UIViewExtension.swift in Sources */,
