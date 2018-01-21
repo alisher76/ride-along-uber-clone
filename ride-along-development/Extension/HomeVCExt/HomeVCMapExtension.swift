@@ -98,6 +98,9 @@ extension HomeVC: MKMapViewDelegate {
         lineRenderer.fillColor = UIColor.cyan
         lineRenderer.strokeColor = UIColor.green
         lineRenderer.lineWidth = 3
+        
+        zoom(toFitAnnotationFromMapView: self.mapView)
+        
         return lineRenderer
     }
     
@@ -115,6 +118,29 @@ extension HomeVC: MKMapViewDelegate {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         mapView.addAnnotation(annotation)
+    }
+    
+    // MARK: Zoom
+    
+    func zoom(toFitAnnotationFromMapView mapview: MKMapView) {
+        if mapView.annotations.count == 0 {
+            return
+        } else {
+            var topLeftCoordinate = CLLocationCoordinate2D(latitude: -90, longitude: 100)
+            var bottomRightCoordinate = CLLocationCoordinate2D(latitude: 90, longitude: -100)
+
+            for annotation in mapView.annotations where !annotation.isKind(of: DriverAnotation.self) {
+                    topLeftCoordinate.longitude = fmin(topLeftCoordinate.longitude, annotation.coordinate.longitude)
+                topLeftCoordinate.latitude = fmax(topLeftCoordinate.latitude, annotation.coordinate.latitude)
+                bottomRightCoordinate.longitude = fmax(bottomRightCoordinate.longitude, annotation.coordinate.longitude)
+                bottomRightCoordinate.latitude = fmin(bottomRightCoordinate.latitude, annotation.coordinate.latitude)
+            }
+            
+            var region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(topLeftCoordinate.latitude - (topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 0.5, topLeftCoordinate.longitude + (bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 0.5), span: MKCoordinateSpan(latitudeDelta: fabs(topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 2.0, longitudeDelta: fabs(bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 2.0))
+            
+            region = mapview.regionThatFits(region)
+            mapview.setRegion(region, animated: true)
+        }
     }
     
     // Load coordinates from DataBase
