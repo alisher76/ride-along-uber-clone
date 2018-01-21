@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import MapKit
 
 extension HomeVC: UITextFieldDelegate {
     
@@ -75,9 +76,19 @@ extension HomeVC: UITextFieldDelegate {
     }
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        centerMapOnUserLocation()
         self.matchingItems.removeAll()
         self.tableView.reloadData()
+    DataService.instance.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("tripCoordinate").removeValue()
+        mapView.removeOverlays(mapView.overlays)
+        for annotation in mapView.annotations {
+            if let annotation = annotation as? MKPointAnnotation {
+                mapView.removeAnnotation(annotation)
+            } else if annotation.isKind(of: PassengerAnnotation.self) {
+                mapView.removeAnnotation(annotation)
+            }
+        }
+        
+        centerMapOnUserLocation()
         return true
     }
 }
