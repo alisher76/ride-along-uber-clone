@@ -24,12 +24,13 @@ class HomeVC: UIViewController {
     // Properties
     var delegate: CenterVCDelegate?
     let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "RALogo")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
-    
     var manager: CLLocationManager?
     var tableView = UITableView()
     var regionRadius: CLLocationDistance = 1000
-    
+    var selectedItemPlacemark: MKPlacemark? = nil
     var matchingItems: [MKMapItem] = [MKMapItem]()
+    var route: MKRoute!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,6 @@ class HomeVC: UIViewController {
         revealingSplashView.animationType = .heartBeat
         revealingSplashView.startAnimation()
         revealingSplashView.heartAttack = true
-        
     }
     
     
@@ -73,5 +73,3 @@ class HomeVC: UIViewController {
     }
     
 }
-
-

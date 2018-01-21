@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-
+import Firebase
+import MapKit
 
 extension HomeVC: UITextFieldDelegate {
     
@@ -56,6 +57,7 @@ extension HomeVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == locationTextField {
             performSearch()
+            shouldPresentLoadingView(true)
             view.endEditing(true)
         }
         return true
@@ -74,9 +76,19 @@ extension HomeVC: UITextFieldDelegate {
     }
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        centerMapOnUserLocation()
         self.matchingItems.removeAll()
         self.tableView.reloadData()
+    DataService.instance.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("tripCoordinate").removeValue()
+        mapView.removeOverlays(mapView.overlays)
+        for annotation in mapView.annotations {
+            if let annotation = annotation as? MKPointAnnotation {
+                mapView.removeAnnotation(annotation)
+            } else if annotation.isKind(of: PassengerAnnotation.self) {
+                mapView.removeAnnotation(annotation)
+            }
+        }
+        
+        centerMapOnUserLocation()
         return true
     }
 }
@@ -106,7 +118,21 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let currentUserID = Auth.auth().currentUser?.uid else { return }
+        let passengerCoordinate = manager?.location?.coordinate
+        let passengerAnnotation = PassengerAnnotation(coordinate: passengerCoordinate!, key: currentUserID)
+        mapView.addAnnotation(passengerAnnotation)
+        locationTextField.text = tableView.cellForRow(at: indexPath)?.textLabel?.text
+        
+        let selectedMapItem = matchingItems[indexPath.row]
+        
+        DataService.instance.REF_USERS.child(currentUserID).updateChildValues(["tripCoordinate": [selectedMapItem.placemark.coordinate.latitude, selectedMapItem.placemark.coordinate.longitude]])
+        dropPinFor(placemark: selectedMapItem.placemark)
+        
+        searchMapKitForResultWithPolyline(forMapItem: selectedMapItem)
+        
         animateTableView(shouldShow: false)
+        self.shouldPresentLoadingView(true)
     }
     
 }

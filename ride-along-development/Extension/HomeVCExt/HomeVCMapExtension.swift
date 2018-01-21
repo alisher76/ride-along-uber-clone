@@ -24,6 +24,22 @@ extension HomeVC: MKMapViewDelegate {
             view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.image = UIImage(named: "driverAnnotation")
             return view
+        } else if let annotation = annotation as? PassengerAnnotation {
+            let identifier = "passenger"
+            var view: MKAnnotationView
+            view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.image = UIImage(named: "currentLocationAnnotation")
+            return view
+        } else if let annotation = annotation as? MKPointAnnotation {
+            let identifier = "destination"
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            } else {
+                annotationView?.annotation = annotation
+            }
+            annotationView?.image = UIImage(named: "destinationAnnotation")
+            return annotationView
         } else {
             return nil
         }
@@ -51,8 +67,54 @@ extension HomeVC: MKMapViewDelegate {
                     self.matchingItems.append(mapItem)
                 }
                 self.tableView.reloadData()
+                self.shouldPresentLoadingView(false)
             }
         }
+    }
+    
+    //MARK: Search Map and Draw a Polyline
+    
+    func searchMapKitForResultWithPolyline(forMapItem mapItem: MKMapItem) {
+        let request = MKDirectionsRequest()
+        request.source = MKMapItem.forCurrentLocation()
+        request.destination = mapItem
+        request.transportType = MKDirectionsTransportType.automobile
+        
+        let directions = MKDirections(request: request)
+        
+        directions.calculate { (oResponce, oError) in
+            guard let responce = oResponce else {
+                print(oError.debugDescription)
+                return
+            }
+        self.route = responce.routes.first
+        self.mapView.add(self.route.polyline)
+        self.shouldPresentLoadingView(false)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let lineRenderer = MKPolylineRenderer(overlay: route.polyline)
+        lineRenderer.fillColor = UIColor.cyan
+        lineRenderer.strokeColor = UIColor.green
+        lineRenderer.lineWidth = 3
+        return lineRenderer
+    }
+    
+    // MARK: Drop pin
+    
+    func dropPinFor(placemark: MKPlacemark) {
+        selectedItemPlacemark = placemark
+        
+        for annotation in mapView.annotations {
+            if annotation.isKind(of: MKPointAnnotation.self) {
+                mapView.removeAnnotation(annotation)
+            }
+        }
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        mapView.addAnnotation(annotation)
     }
     
     // Load coordinates from DataBase
