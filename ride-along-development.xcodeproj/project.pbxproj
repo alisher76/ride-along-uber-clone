@@ -34,6 +34,7 @@
 		ACAE8D881FFC2AC600A75D8B /* LeftSidePannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D871FFC2AC600A75D8B /* LeftSidePannelVC.swift */; };
 		ACAE8D8A1FFC2B0500A75D8B /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D891FFC2B0500A75D8B /* ContainerVC.swift */; };
 		ACAE8D8D1FFC2D6E00A75D8B /* CenterVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D8C1FFC2D6E00A75D8B /* CenterVCDelegate.swift */; };
+		ACC2531C2016F1D300850CA1 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2531B2016F1D300850CA1 /* Alertable.swift */; };
 		ACCFE96220002ED500AC4989 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFE96120002ED500AC4989 /* UIViewExtension.swift */; };
 		ACCFE9642000364E00AC4989 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFE9632000364E00AC4989 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		ACAE8D871FFC2AC600A75D8B /* LeftSidePannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSidePannelVC.swift; sourceTree = "<group>"; };
 		ACAE8D891FFC2B0500A75D8B /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 		ACAE8D8C1FFC2D6E00A75D8B /* CenterVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterVCDelegate.swift; sourceTree = "<group>"; };
+		ACC2531B2016F1D300850CA1 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		ACCFE96120002ED500AC4989 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		ACCFE9632000364E00AC4989 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				ACAE8D8C1FFC2D6E00A75D8B /* CenterVCDelegate.swift */,
+				ACC2531B2016F1D300850CA1 /* Alertable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				AC64558120080428005F4470 /* DriverAnotation.swift in Sources */,
 				ACCFE9642000364E00AC4989 /* LoginVC.swift in Sources */,
 				ACCFE96220002ED500AC4989 /* UIViewExtension.swift in Sources */,
+				ACC2531C2016F1D300850CA1 /* Alertable.swift in Sources */,
 				ACAE8D861FFC202300A75D8B /* RoundedShadowButton.swift in Sources */,
 				AC6711D4200885FD000A4D14 /* HomeVCUITextFieldDelegateExtension.swift in Sources */,
 				AC645584200805CE005F4470 /* HomeVCMapExtension.swift in Sources */,

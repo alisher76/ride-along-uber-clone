@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginVC: UIViewController, UITextFieldDelegate {
+class LoginVC: UIViewController, UITextFieldDelegate, Alertable {
     
     // Outlets
     
@@ -65,8 +65,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     } else if AuthErrorCode(rawValue: error!._code) == .invalidEmail {
                         // Handle error
                         print("Email invalid try again")
+                        self.showAlert("Email invalid try again!")
                     } else if AuthErrorCode(rawValue: error!._code) == .wrongPassword {
                             print("Wrong password or email already in use")
+                            self.showAlert("Email or Password is invalid")
                     } else {
                     
                         Auth.auth().createUser(withEmail: userName, password: passwd, completion: { (user, error) in
@@ -76,13 +78,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                 if let errorCode = AuthErrorCode(rawValue: error!._code) {
                                     switch errorCode {
                                     case .invalidEmail:
-                                        print("Email invalid try again")
+                                        self.showAlert("Email or Password invalid try again!")
                                     case .emailAlreadyInUse:
                                         print("Email already in use")
+                                        self.showAlert("Email is in use!")
                                     case .weakPassword:
-                                        print("Sorry weak password")
+                                        self.showAlert("Weak Password, it has to be at least 6 characters!")
                                     default:
-                                        print("Could not create a user")
+                                        self.showAlert("Sorry We could not your account!")
                                     }
                                 }
                             } else {
