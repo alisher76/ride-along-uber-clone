@@ -10,7 +10,7 @@ import MapKit
 import UIKit
 import Firebase
 
-extension HomeVC: MKMapViewDelegate {
+extension HomeVC: MKMapViewDelegate, Alertable {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         UpdateService.instance.updateDriverLocation(withCoordinate: userLocation.coordinate)
@@ -59,9 +59,9 @@ extension HomeVC: MKMapViewDelegate {
         
         search.start { (responce, error) in
             if error != nil {
-                print(error?.localizedDescription ?? "Could not describe the error")
+                self.showAlert(error.debugDescription)
             } else if responce?.mapItems.count == 0 {
-                print("No Results found")
+               self.showAlert("No results please search again for different location.")
             } else {
                 for mapItem in responce!.mapItems {
                     self.matchingItems.append(mapItem)
@@ -84,6 +84,7 @@ extension HomeVC: MKMapViewDelegate {
         
         directions.calculate { (oResponce, oError) in
             guard let responce = oResponce else {
+                self.showAlert("Error occured")
                 print(oError.debugDescription)
                 return
             }
