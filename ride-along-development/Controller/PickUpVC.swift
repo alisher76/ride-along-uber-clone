@@ -29,9 +29,7 @@ class PickUpVC: UIViewController {
     @IBAction func acceptBtnTapped(_ sender: Any) {
         
     }
-    
 }
-
 
 extension PickUpVC: MKMapViewDelegate {
     
