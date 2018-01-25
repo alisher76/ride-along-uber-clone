@@ -10,7 +10,7 @@ import MapKit
 import UIKit
 import Firebase
 
-extension HomeVC: MKMapViewDelegate {
+extension HomeVC: MKMapViewDelegate, Alertable {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         UpdateService.instance.updateDriverLocation(withCoordinate: userLocation.coordinate)
@@ -59,9 +59,9 @@ extension HomeVC: MKMapViewDelegate {
         
         search.start { (responce, error) in
             if error != nil {
-                print(error?.localizedDescription ?? "Could not describe the error")
+                self.showAlert(error.debugDescription)
             } else if responce?.mapItems.count == 0 {
-                print("No Results found")
+               self.showAlert("No results please search again for different location.")
             } else {
                 for mapItem in responce!.mapItems {
                     self.matchingItems.append(mapItem)
@@ -84,6 +84,7 @@ extension HomeVC: MKMapViewDelegate {
         
         directions.calculate { (oResponce, oError) in
             guard let responce = oResponce else {
+                self.showAlert("Error occured")
                 print(oError.debugDescription)
                 return
             }
@@ -98,6 +99,9 @@ extension HomeVC: MKMapViewDelegate {
         lineRenderer.fillColor = UIColor.cyan
         lineRenderer.strokeColor = UIColor.green
         lineRenderer.lineWidth = 3
+        
+        zoom(toFitAnnotationFromMapView: self.mapView)
+        
         return lineRenderer
     }
     
@@ -115,6 +119,29 @@ extension HomeVC: MKMapViewDelegate {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         mapView.addAnnotation(annotation)
+    }
+    
+    // MARK: Zoom
+    
+    func zoom(toFitAnnotationFromMapView mapview: MKMapView) {
+        if mapView.annotations.count == 0 {
+            return
+        } else {
+            var topLeftCoordinate = CLLocationCoordinate2D(latitude: -90, longitude: 100)
+            var bottomRightCoordinate = CLLocationCoordinate2D(latitude: 90, longitude: -100)
+
+            for annotation in mapView.annotations where !annotation.isKind(of: DriverAnotation.self) {
+                    topLeftCoordinate.longitude = fmin(topLeftCoordinate.longitude, annotation.coordinate.longitude)
+                topLeftCoordinate.latitude = fmax(topLeftCoordinate.latitude, annotation.coordinate.latitude)
+                bottomRightCoordinate.longitude = fmax(bottomRightCoordinate.longitude, annotation.coordinate.longitude)
+                bottomRightCoordinate.latitude = fmin(bottomRightCoordinate.latitude, annotation.coordinate.latitude)
+            }
+            
+            var region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(topLeftCoordinate.latitude - (topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 0.5, topLeftCoordinate.longitude + (bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 0.5), span: MKCoordinateSpan(latitudeDelta: fabs(topLeftCoordinate.latitude - bottomRightCoordinate.latitude) * 2.0, longitudeDelta: fabs(bottomRightCoordinate.longitude - topLeftCoordinate.longitude) * 2.0))
+            
+            region = mapview.regionThatFits(region)
+            mapview.setRegion(region, animated: true)
+        }
     }
     
     // Load coordinates from DataBase

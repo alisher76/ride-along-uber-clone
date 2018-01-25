@@ -21,6 +21,8 @@
 		AC40A2291FFB4D7000004D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC40A2281FFB4D7000004D45 /* Assets.xcassets */; };
 		AC40A22C1FFB4D7000004D45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC40A22A1FFB4D7000004D45 /* LaunchScreen.storyboard */; };
 		AC40A2371FFB4D7000004D45 /* ride_along_developmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC40A2361FFB4D7000004D45 /* ride_along_developmentTests.swift */; };
+		AC4DB17F20198BD800479EE5 /* PickUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DB17E20198BD800479EE5 /* PickUpVC.swift */; };
+		AC4DB18120198CB800479EE5 /* RoundMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DB18020198CB800479EE5 /* RoundMapView.swift */; };
 		AC64557F2007FA5A005F4470 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC64557E2007FA5A005F4470 /* UpdateService.swift */; };
 		AC64558120080428005F4470 /* DriverAnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC64558020080428005F4470 /* DriverAnotation.swift */; };
 		AC645584200805CE005F4470 /* HomeVCMapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC645583200805CE005F4470 /* HomeVCMapExtension.swift */; };
@@ -34,6 +36,7 @@
 		ACAE8D881FFC2AC600A75D8B /* LeftSidePannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D871FFC2AC600A75D8B /* LeftSidePannelVC.swift */; };
 		ACAE8D8A1FFC2B0500A75D8B /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D891FFC2B0500A75D8B /* ContainerVC.swift */; };
 		ACAE8D8D1FFC2D6E00A75D8B /* CenterVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE8D8C1FFC2D6E00A75D8B /* CenterVCDelegate.swift */; };
+		ACC2531C2016F1D300850CA1 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2531B2016F1D300850CA1 /* Alertable.swift */; };
 		ACCFE96220002ED500AC4989 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFE96120002ED500AC4989 /* UIViewExtension.swift */; };
 		ACCFE9642000364E00AC4989 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFE9632000364E00AC4989 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +74,8 @@
 		AC40A2321FFB4D7000004D45 /* ride-along-developmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ride-along-developmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC40A2361FFB4D7000004D45 /* ride_along_developmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ride_along_developmentTests.swift; sourceTree = "<group>"; };
 		AC40A2381FFB4D7000004D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC4DB17E20198BD800479EE5 /* PickUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpVC.swift; sourceTree = "<group>"; };
+		AC4DB18020198CB800479EE5 /* RoundMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundMapView.swift; sourceTree = "<group>"; };
 		AC64557E2007FA5A005F4470 /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
 		AC64558020080428005F4470 /* DriverAnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnotation.swift; sourceTree = "<group>"; };
 		AC645583200805CE005F4470 /* HomeVCMapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCMapExtension.swift; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 		ACAE8D871FFC2AC600A75D8B /* LeftSidePannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSidePannelVC.swift; sourceTree = "<group>"; };
 		ACAE8D891FFC2B0500A75D8B /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 		ACAE8D8C1FFC2D6E00A75D8B /* CenterVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterVCDelegate.swift; sourceTree = "<group>"; };
+		ACC2531B2016F1D300850CA1 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		ACCFE96120002ED500AC4989 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		ACCFE9632000364E00AC4989 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +200,7 @@
 				ACAE8D871FFC2AC600A75D8B /* LeftSidePannelVC.swift */,
 				ACAE8D891FFC2B0500A75D8B /* ContainerVC.swift */,
 				ACCFE9632000364E00AC4989 /* LoginVC.swift */,
+				AC4DB17E20198BD800479EE5 /* PickUpVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -227,6 +234,7 @@
 				AC6455822008057E005F4470 /* HomeVCExt */,
 				ACCFE96120002ED500AC4989 /* UIViewExtension.swift */,
 				AC32E52D20104D9D00B6D362 /* UIViewControllerExtension.swift */,
+				AC4DB18020198CB800479EE5 /* RoundMapView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				ACAE8D8C1FFC2D6E00A75D8B /* CenterVCDelegate.swift */,
+				ACC2531B2016F1D300850CA1 /* Alertable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -477,11 +486,14 @@
 				AC64558120080428005F4470 /* DriverAnotation.swift in Sources */,
 				ACCFE9642000364E00AC4989 /* LoginVC.swift in Sources */,
 				ACCFE96220002ED500AC4989 /* UIViewExtension.swift in Sources */,
+				ACC2531C2016F1D300850CA1 /* Alertable.swift in Sources */,
 				ACAE8D861FFC202300A75D8B /* RoundedShadowButton.swift in Sources */,
+				AC4DB18120198CB800479EE5 /* RoundMapView.swift in Sources */,
 				AC6711D4200885FD000A4D14 /* HomeVCUITextFieldDelegateExtension.swift in Sources */,
 				AC645584200805CE005F4470 /* HomeVCMapExtension.swift in Sources */,
 				ACAE8D841FFC1DFB00A75D8B /* CircleView.swift in Sources */,
 				AC64558620080BB5005F4470 /* HomeVCLocationManagerExtension.swift in Sources */,
+				AC4DB17F20198BD800479EE5 /* PickUpVC.swift in Sources */,
 				AC3FDE5A20009E4800FB6D1A /* RoundedImageShadow.swift in Sources */,
 				ACAE8D8A1FFC2B0500A75D8B /* ContainerVC.swift in Sources */,
 				AC3FDE5F2000A5F400FB6D1A /* DataService.swift in Sources */,
