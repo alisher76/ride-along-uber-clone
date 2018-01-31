@@ -47,7 +47,7 @@ class UpdateService {
         DataService.instance.REF_TRIPS.observe(.value) { (snapshot) in
             if let tripSnapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for trip in tripSnapshot {
-                    if trip.hasChild("passengerKey") && trip.hasChild("tripIsAccepted") {
+                    if trip.hasChild("passengerKey") && trip.hasChild("tripAccepted") {
                         if let tripDict = trip.value as? [String:Any] {
                             handler(tripDict)
                         }

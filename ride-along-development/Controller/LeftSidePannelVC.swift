@@ -88,7 +88,6 @@ class LeftSidePannelVC: UIViewController {
     }
     
     // IBActions
-    
     @IBAction func lgnBtnTapped(_ sender: Any) {
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
