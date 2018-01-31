@@ -8,8 +8,9 @@
 
 import UIKit
 
-class GradientView: UIView {
 
+class GradientView: UIView {
+    
     let gradient = CAGradientLayer()
     
     override func awakeFromNib() {
@@ -26,5 +27,4 @@ class GradientView: UIView {
         gradient.locations = [0.6, 1.0]
         self.layer.addSublayer(gradient)
     }
-
 }

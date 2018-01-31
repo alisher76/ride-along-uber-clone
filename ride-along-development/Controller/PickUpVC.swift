@@ -16,10 +16,27 @@ class PickUpVC: UIViewController {
     
     let regionRadius: CLLocationDistance = 2000
     var pin: MKPlacemark? = nil
+    var pickUpCoordinate: CLLocationCoordinate2D!
+    var passengerKey: String!
+    var locationPlacemark: MKPlacemark!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        pickUpMapView.delegate = self
+        
+        locationPlacemark = MKPlacemark(coordinate: pickUpCoordinate)
+        
+        
+        dropPinFor(placemark: locationPlacemark)
+        centerMapOnLocation(location: locationPlacemark.location! )
+        
+    }
+    
+    func initData(coordinate: CLLocationCoordinate2D, passengerKey: String) {
+        self.pickUpCoordinate = coordinate
+        self.passengerKey = passengerKey
     }
     
     @IBAction func cancelBtnTapped(_ sender: Any) {
@@ -29,9 +46,7 @@ class PickUpVC: UIViewController {
     @IBAction func acceptBtnTapped(_ sender: Any) {
         
     }
-    
 }
-
 
 extension PickUpVC: MKMapViewDelegate {
     

@@ -119,8 +119,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let currentUserID = Auth.auth().currentUser?.uid else { return }
-        let passengerCoordinate = manager?.location?.coordinate
-        let passengerAnnotation = PassengerAnnotation(coordinate: passengerCoordinate!, key: currentUserID)
+        guard let passengerCoordinate = manager?.location?.coordinate else { return }
+        let passengerAnnotation = PassengerAnnotation(coordinate: passengerCoordinate, key: currentUserID)
         mapView.addAnnotation(passengerAnnotation)
         locationTextField.text = tableView.cellForRow(at: indexPath)?.textLabel?.text
         

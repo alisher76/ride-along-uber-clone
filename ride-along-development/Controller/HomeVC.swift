@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import RevealingSplashView
 import CoreLocation
+import Firebase
 
 class HomeVC: UIViewController {
 
@@ -53,14 +54,34 @@ class HomeVC: UIViewController {
         revealingSplashView.animationType = .heartBeat
         revealingSplashView.startAnimation()
         revealingSplashView.heartAttack = true
+        
+        UpdateService.instance.observeTrips { (tripDict) in
+            if let tripDict = tripDict {
+                let pickUpCoordinateArray = tripDict["pickUpCoordinate"] as! NSArray
+                let tripKey = tripDict["passengerKey"] as! String
+                let acceptanceStatus = tripDict["tripAccepted"] as! Bool
+                if acceptanceStatus == false {
+                    DataService.instance.driverIsAvailable(key: (Auth.auth().currentUser?.uid)!, handler: { (available) in
+                        if available {
+                            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                            let pickUpVC = storyboard.instantiateViewController(withIdentifier: "pickupVC") as! PickUpVC
+                            pickUpVC.initData(coordinate: CLLocationCoordinate2D(latitude: pickUpCoordinateArray[0] as! CLLocationDegrees, longitude: pickUpCoordinateArray[1] as! CLLocationDegrees) , passengerKey: tripKey)
+                            self.present(pickUpVC, animated: true, completion: nil)
+                        }
+                    })
+                }
+            }
+        }
     }
     
     
     // IBActions
     
     @IBAction func requestBtnTapped(_ sender: Any) {
-        print("Btn is pressed")
+        UpdateService.instance.updateTripWithCoordinate()
         requestBtn.animateButton(shouldLoad: true, withMessage: nil)
+        
+        locationTextField.isUserInteractionEnabled = false
     }
     
     @IBAction func menuBtnTapped(_ sender: Any) {
