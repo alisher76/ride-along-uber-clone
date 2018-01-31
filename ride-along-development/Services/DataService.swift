@@ -46,6 +46,23 @@ class DataService {
         }
     }
     
-    
+    // MARK: Driver is available
+    func driverIsAvailable(key: String, handler: @escaping (_ status: Bool) -> Void) {
+        DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value) { (snapshot) in
+            if let driverSnapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for driver in driverSnapshot {
+                    if driver.key == key {
+                        if driver.childSnapshot(forPath: "isOnline").value as? Bool == true {
+                            if driver.childSnapshot(forPath: "isOnTrip").value as? Bool == true {
+                                handler(false)
+                            } else {
+                                handler(true)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 

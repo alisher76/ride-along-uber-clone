@@ -573,15 +573,15 @@
             </objects>
             <point key="canvasLocation" x="1590" y="126"/>
         </scene>
-        <!--acceptTrip-->
+        <!--pickupVC-->
         <scene sceneID="bbM-3F-kbp">
             <objects>
-                <viewController storyboardIdentifier="pickupVC" title="acceptTrip" id="MFy-WZ-6os" customClass="PickUpVC" customModule="ride_along_development" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pickupVC" title="pickupVC" id="MFy-WZ-6os" customClass="PickUpVC" customModule="ride_along_development" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x12-Yi-KZu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="be3-ng-5hj">
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="be3-ng-5hj">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukb-aZ-2DW">
@@ -673,7 +673,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ukb-aZ-2DW" firstAttribute="leading" secondItem="x12-Yi-KZu" secondAttribute="leading" id="0wB-hT-jC4"/>
                             <constraint firstItem="be3-ng-5hj" firstAttribute="top" secondItem="Ea2-95-Ekc" secondAttribute="top" id="379-3X-jzY"/>
