@@ -81,6 +81,7 @@ class HomeVC: UIViewController {
         UpdateService.instance.updateTripWithCoordinate()
         requestBtn.animateButton(shouldLoad: true, withMessage: nil)
         
+        self.view.endEditing(true)
         locationTextField.isUserInteractionEnabled = false
     }
     
